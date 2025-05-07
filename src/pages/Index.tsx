@@ -1,5 +1,8 @@
 
 import React from 'react';
+import { Button } from "@/components/ui/button";
+import { Link } from "react-router-dom";
+import { GalleryHorizontal } from "lucide-react";
 import Hero from '../components/Hero';
 import Timeline, { TimelineEntry } from '../components/Timeline';
 
@@ -54,6 +57,20 @@ const Index = () => {
       
       {/* Timeline Section */}
       <Timeline entries={timelineEntries} />
+      
+      {/* Gallery Button Section */}
+      <div className="py-16 flex justify-center">
+        <Button 
+          size="lg" 
+          className="group hover:scale-105 transition-transform duration-300"
+          asChild
+        >
+          <Link to="/gallery" className="flex items-center gap-2">
+            <span>View Full Gallery</span>
+            <GalleryHorizontal className="group-hover:translate-x-1 transition-transform duration-300" />
+          </Link>
+        </Button>
+      </div>
       
       {/* Footer */}
       <footer className="py-8 text-center">
