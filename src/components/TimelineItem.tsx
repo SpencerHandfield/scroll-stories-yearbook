@@ -32,7 +32,7 @@ const TimelineItem: React.FC<TimelineItemProps> = ({
       {
         root: null,
         rootMargin: "0px",
-        threshold: 0.3,
+        threshold: 0.2, // Trigger earlier for smoother animations
       }
     );
 
@@ -48,45 +48,65 @@ const TimelineItem: React.FC<TimelineItemProps> = ({
   }, []);
 
   // Staggered animation delay based on index
-  const animationDelay = `${index * 0.1}s`;
+  const animationDelay = `${index * 0.15}s`;
+  
+  // Enhanced animation classes
+  const contentClasses = isVisible 
+    ? `opacity-100 ${isLeft ? 'translate-x-0' : 'translate-x-0'}` 
+    : `opacity-0 ${isLeft ? '-translate-x-24' : 'translate-x-24'}`;
+  
+  const imageClasses = isVisible
+    ? `opacity-100 ${isLeft ? 'translate-x-0' : 'translate-x-0'} scale-100` 
+    : `opacity-0 ${isLeft ? 'translate-x-24' : '-translate-x-24'} scale-90`;
 
   return (
     <div 
       ref={itemRef} 
-      className={`timeline-item flex items-center justify-center w-full my-16 ${isVisible ? 'animate' : ''}`}
-      style={{ animationDelay }}
+      className="timeline-item flex items-center justify-center w-full my-16"
     >
       <div className="container relative grid grid-cols-1 md:grid-cols-2 gap-4 md:gap-12">
         {/* Content for left positioning */}
         {isLeft ? (
           <>
-            <div className="md:text-right flex flex-col justify-center order-2 md:order-1 px-4">
+            <div 
+              className={`md:text-right flex flex-col justify-center order-2 md:order-1 px-4 transform transition-all duration-1000 ease-out ${contentClasses}`}
+              style={{ transitionDelay: animationDelay }}
+            >
               <span className="font-sans text-sm font-semibold text-timeline-purple mb-1">{date}</span>
               <h3 className="font-display text-2xl md:text-3xl font-semibold mb-3">{title}</h3>
               <p className="font-sans text-gray-600">{description}</p>
             </div>
-            <div className="flex justify-center md:justify-start order-1 md:order-2 px-4">
+            <div 
+              className={`flex justify-center md:justify-start order-1 md:order-2 px-4 transform transition-all duration-1000 ease-out ${imageClasses}`}
+              style={{ transitionDelay: `calc(${animationDelay} + 0.2s)` }}
+            >
               <div className="relative overflow-hidden rounded-lg shadow-lg w-full max-w-md h-64 md:h-72">
                 <img 
                   src={imageSrc} 
                   alt={title}
-                  className="w-full h-full object-cover transition-transform duration-500 hover:scale-105"
+                  className="w-full h-full object-cover transition-transform duration-700 hover:scale-110"
                 />
               </div>
             </div>
           </>
         ) : (
           <>
-            <div className="flex justify-center md:justify-end order-1 px-4">
+            <div 
+              className={`flex justify-center md:justify-end order-1 px-4 transform transition-all duration-1000 ease-out ${imageClasses}`}
+              style={{ transitionDelay: animationDelay }}
+            >
               <div className="relative overflow-hidden rounded-lg shadow-lg w-full max-w-md h-64 md:h-72">
                 <img 
                   src={imageSrc} 
                   alt={title}
-                  className="w-full h-full object-cover transition-transform duration-500 hover:scale-105"
+                  className="w-full h-full object-cover transition-transform duration-700 hover:scale-110"
                 />
               </div>
             </div>
-            <div className="flex flex-col justify-center order-2 px-4">
+            <div 
+              className={`flex flex-col justify-center order-2 px-4 transform transition-all duration-1000 ease-out ${contentClasses}`}
+              style={{ transitionDelay: `calc(${animationDelay} + 0.2s)` }}
+            >
               <span className="font-sans text-sm font-semibold text-timeline-purple mb-1">{date}</span>
               <h3 className="font-display text-2xl md:text-3xl font-semibold mb-3">{title}</h3>
               <p className="font-sans text-gray-600">{description}</p>
