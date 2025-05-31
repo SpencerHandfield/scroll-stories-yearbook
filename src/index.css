@@ -93,13 +93,14 @@
   body {
     @apply bg-background text-foreground;
     font-feature-settings: "rlig" 1, "calt" 1;
-    background: linear-gradient(135deg, #fefefe 0%, #faf7f8 25%, #f8f6f7 50%, #f9f7f8 75%, #fcfbfc 100%);
+    background: linear-gradient(135deg, #fefefe 0%, #f7f9fa 25%, #f6f8f9 50%, #f7f8f9 75%, #fbfcfc 100%);
     background-attachment: fixed;
   }
 }
 
 .timeline-dot {
-  @apply w-6 h-6 z-10 relative;
+  @apply w-6 h-6 rounded-full bg-cornflower-blue border-2 border-white z-10 shadow-md;
+  box-shadow: 0 0 8px rgba(100, 149, 237, 0.2), 0 0 16px rgba(100, 149, 237, 0.1);
   position: relative;
 }
 
@@ -109,15 +110,20 @@
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
-  font-size: 16px;
-  color: #be185d;
-  text-shadow: 0 1px 3px rgba(190, 24, 93, 0.3);
+  font-size: 14px;
+  color: white;
+  text-shadow: 0 1px 2px rgba(255, 255, 255, 0.3);
 }
 
 .timeline-line {
   @apply absolute w-0.5 top-0 bottom-0 left-1/2 transform -translate-x-1/2 z-0;
-  background: #be185d;
-  opacity: 0.3;
+  background: linear-gradient(180deg, 
+    rgba(100, 149, 237, 0.4) 0%, 
+    rgba(100, 149, 237, 0.3) 25%, 
+    rgba(123, 104, 238, 0.3) 50%, 
+    rgba(123, 104, 238, 0.3) 75%, 
+    rgba(100, 149, 237, 0.4) 100%);
+  box-shadow: 0 0 6px rgba(100, 149, 237, 0.15);
   border-radius: 1px;
 }
 
@@ -129,7 +135,10 @@
   transform: translateX(-50%);
   width: 1px;
   height: 100%;
-  background: rgba(255, 255, 255, 0.5);
+  background: linear-gradient(180deg, 
+    rgba(255, 255, 255, 0.3) 0%, 
+    transparent 50%, 
+    rgba(255, 255, 255, 0.3) 100%);
   border-radius: 0.5px;
 }
 
@@ -164,9 +173,9 @@ html {
   width: 100%;
   height: 100%;
   background-image: 
-    radial-gradient(circle at 25% 25%, rgba(190, 24, 93, 0.02) 0%, transparent 50%),
-    radial-gradient(circle at 75% 75%, rgba(190, 24, 93, 0.02) 0%, transparent 50%),
-    radial-gradient(circle at 50% 50%, rgba(190, 24, 93, 0.01) 0%, transparent 50%);
+    radial-gradient(circle at 25% 25%, rgba(100, 149, 237, 0.05) 0%, transparent 50%),
+    radial-gradient(circle at 75% 75%, rgba(123, 104, 238, 0.05) 0%, transparent 50%),
+    radial-gradient(circle at 50% 50%, rgba(100, 149, 237, 0.03) 0%, transparent 50%);
   pointer-events: none;
   z-index: -1;
 }
@@ -178,7 +187,7 @@ html {
 
 .timeline-image-container:hover {
   transform: scale(1.02) rotate(0.5deg);
-  box-shadow: 0 15px 30px rgba(0, 0, 0, 0.1), 0 0 15px rgba(190, 24, 93, 0.1);
+  box-shadow: 0 15px 30px rgba(0, 0, 0, 0.1), 0 0 15px rgba(100, 149, 237, 0.1);
 }
 
 .timeline-content {
@@ -189,13 +198,11 @@ html {
   transform: translateY(-2px);
 }
 
-/* Clean consistent text effects */
+/* Clean romantic text effects */
 .romantic-title {
-  color: #be185d;
-  text-shadow: none;
+  color: #4f7cba;
 }
 
 .romantic-date {
-  color: #6b7280;
-  text-shadow: none;
+  color: #6495ed;
 }

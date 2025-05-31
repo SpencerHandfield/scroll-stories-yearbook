@@ -71,7 +71,7 @@ const galleryImages = [
 const Gallery = () => {
   return (
     <div className="min-h-screen romantic-bg">
-      <div className="fixed inset-0 bg-gradient-to-br from-pink-50/40 via-purple-50/30 to-rose-50/40 pointer-events-none" />
+      <div className="fixed inset-0 bg-gradient-to-br from-blue-50/40 via-indigo-50/30 to-sky-50/40 pointer-events-none" />
       
       <div className="relative z-10 p-4 md:p-8">
         <div className="max-w-7xl mx-auto">
@@ -79,7 +79,7 @@ const Gallery = () => {
             <Button
               variant="outline"
               size="sm"
-              className="gap-2 border-pink-200 text-pink-500 hover:bg-pink-25 hover:border-pink-300 transition-all duration-300"
+              className="gap-2 border-blue-200 text-cornflower-blue hover:bg-blue-25 hover:border-blue-300 transition-all duration-300"
               asChild
             >
               <Link to="/">
@@ -102,7 +102,7 @@ const Gallery = () => {
                   alt={image.alt}
                   className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105"
                 />
-                <div className="absolute inset-0 bg-gradient-to-br from-pink-400/0 via-transparent to-purple-400/0 group-hover:from-pink-400/10 group-hover:to-purple-400/10 transition-all duration-300" />
+                <div className="absolute inset-0 bg-gradient-to-br from-cornflower-blue/0 via-transparent to-blue-400/0 group-hover:from-cornflower-blue/10 group-hover:to-blue-400/10 transition-all duration-300" />
               </div>
             ))}
           </div>

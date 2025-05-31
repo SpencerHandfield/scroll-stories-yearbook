@@ -63,11 +63,14 @@ export default {
 					ring: 'hsl(var(--sidebar-ring))'
 				},
 				timeline: {
-					primary: "#be185d",
+					primary: "#6495ed",
 					secondary: "#6b7280",
-					light: "#f8f5f9",
-					accent: "#ec4899"
-				}
+					light: "#f0f4f8",
+					accent: "#4f7cba"
+				},
+				'cornflower-blue': '#6495ed',
+				'cornflower-dark': '#4f7cba',
+				'cornflower-light': '#87ceeb'
 			},
 			fontFamily: {
 				display: ['Playfair Display', 'serif'],

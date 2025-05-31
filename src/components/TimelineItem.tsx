@@ -1,4 +1,3 @@
-
 import React, { useEffect, useRef, useState } from 'react';
 
 interface TimelineItemProps {
@@ -61,7 +60,7 @@ const TimelineItem: React.FC<TimelineItemProps> = ({
         {isLeft ? (
           <>
             <div className="md:text-right flex flex-col justify-center order-2 md:order-1 px-6 timeline-content">
-              <span className="font-script text-sm font-medium romantic-date mb-2 tracking-wide uppercase">{date}</span>
+              <span className="font-sans text-sm font-medium romantic-date mb-2 tracking-wide uppercase">{date}</span>
               <h3 className="font-display text-3xl md:text-4xl font-semibold mb-4 romantic-title leading-tight">{title}</h3>
               <p className="font-sans text-gray-600 text-lg leading-relaxed">{description}</p>
             </div>
@@ -72,7 +71,7 @@ const TimelineItem: React.FC<TimelineItemProps> = ({
                   alt={title}
                   className="w-full h-full object-cover"
                 />
-                <div className="absolute inset-0 bg-timeline-primary/5" />
+                <div className="absolute inset-0 bg-cornflower-blue/5" />
               </div>
             </div>
           </>
@@ -85,11 +84,11 @@ const TimelineItem: React.FC<TimelineItemProps> = ({
                   alt={title}
                   className="w-full h-full object-cover"
                 />
-                <div className="absolute inset-0 bg-timeline-primary/5" />
+                <div className="absolute inset-0 bg-cornflower-blue/5" />
               </div>
             </div>
             <div className="flex flex-col justify-center order-2 px-6 timeline-content">
-              <span className="font-script text-sm font-medium romantic-date mb-2 tracking-wide uppercase">{date}</span>
+              <span className="font-sans text-sm font-medium romantic-date mb-2 tracking-wide uppercase">{date}</span>
               <h3 className="font-display text-3xl md:text-4xl font-semibold mb-4 romantic-title leading-tight">{title}</h3>
               <p className="font-sans text-gray-600 text-lg leading-relaxed">{description}</p>
             </div>
