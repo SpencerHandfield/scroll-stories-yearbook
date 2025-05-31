@@ -47,7 +47,10 @@ const timelineEntries: TimelineEntry[] = [
 
 const Index = () => {
   return (
-    <div className="min-h-screen bg-gradient-to-b from-timeline-soft-purple/30 to-timeline-soft-pink/20">
+    <div className="min-h-screen romantic-bg">
+      {/* Enhanced background overlay */}
+      <div className="fixed inset-0 bg-gradient-to-br from-pink-50/80 via-purple-50/60 to-rose-50/80 pointer-events-none" />
+      
       {/* Hero Section */}
       <Hero 
         title="2023: Our Year in Review" 
@@ -59,22 +62,22 @@ const Index = () => {
       <Timeline entries={timelineEntries} />
       
       {/* Gallery Button Section */}
-      <div className="py-16 flex justify-center">
+      <div className="py-20 flex justify-center relative z-10">
         <Button 
           size="lg" 
-          className="group hover:scale-105 transition-transform duration-300"
+          className="group bg-gradient-to-r from-pink-500 via-rose-500 to-purple-600 hover:from-pink-600 hover:via-rose-600 hover:to-purple-700 text-white border-0 shadow-xl hover:shadow-2xl transform hover:scale-105 transition-all duration-500 px-8 py-4 text-lg font-medium animate-romantic-glow"
           asChild
         >
-          <Link to="/gallery" className="flex items-center gap-2">
-            <span>View Full Gallery</span>
-            <GalleryHorizontal className="group-hover:translate-x-1 transition-transform duration-300" />
+          <Link to="/gallery" className="flex items-center gap-3">
+            <span className="font-script text-xl">View Full Gallery</span>
+            <GalleryHorizontal className="group-hover:translate-x-2 transition-transform duration-500" size={24} />
           </Link>
         </Button>
       </div>
       
       {/* Footer */}
-      <footer className="py-8 text-center">
-        <p className="font-sans text-gray-500">
+      <footer className="py-12 text-center relative z-10">
+        <p className="font-sans text-rose-400/80 text-lg">
           © {new Date().getFullYear()} Year in Review Timeline
         </p>
       </footer>

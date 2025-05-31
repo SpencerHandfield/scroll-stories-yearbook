@@ -64,17 +64,22 @@ export default {
 					ring: 'hsl(var(--sidebar-ring))'
 				},
 				timeline: {
-					purple: "#9b87f5",
-					"light-purple": "#D6BCFA",
-					"soft-purple": "#E5DEFF",
-					"soft-pink": "#FFDEE2",
-					"soft-peach": "#FDE1D3",
-					"soft-blue": "#D3E4FD",
+					purple: "#ec4899",
+					"light-purple": "#f3e8ff",
+					"soft-purple": "#fdf4ff",
+					"soft-pink": "#fef7f7",
+					"soft-peach": "#fff7ed",
+					"soft-blue": "#f0f9ff",
+					rose: "#fb7185",
+					"deep-pink": "#db2777",
+					lavender: "#ddd6fe",
+					blush: "#fce7f3"
 				}
 			},
 			fontFamily: {
 				display: ['Playfair Display', 'serif'],
-				sans: ['Inter', 'sans-serif']
+				sans: ['Inter', 'sans-serif'],
+				script: ['Dancing Script', 'cursive']
 			},
 			borderRadius: {
 				lg: 'var(--radius)',
@@ -101,27 +106,47 @@ export default {
 				'fade-in-up': {
 					'0%': {
 						opacity: '0',
-						transform: 'translateY(30px)'
+						transform: 'translateY(60px) scale(0.9)'
 					},
 					'100%': {
 						opacity: '1',
-						transform: 'translateY(0)'
+						transform: 'translateY(0) scale(1)'
 					}
 				},
 				'fade-in': {
 					'0%': {
-						opacity: '0'
+						opacity: '0',
+						transform: 'scale(0.95)'
 					},
 					'100%': {
-						opacity: '1'
+						opacity: '1',
+						transform: 'scale(1)'
+					}
+				},
+				'romantic-glow': {
+					'0%, 100%': {
+						boxShadow: '0 0 20px rgba(236, 72, 153, 0.3)'
+					},
+					'50%': {
+						boxShadow: '0 0 40px rgba(236, 72, 153, 0.6), 0 0 60px rgba(168, 85, 247, 0.3)'
+					}
+				},
+				'heart-beat': {
+					'0%, 100%': {
+						transform: 'scale(1)'
+					},
+					'50%': {
+						transform: 'scale(1.1)'
 					}
 				}
 			},
 			animation: {
 				'accordion-down': 'accordion-down 0.2s ease-out',
 				'accordion-up': 'accordion-up 0.2s ease-out',
-				'fade-in-up': 'fade-in-up 0.8s ease-out forwards',
-				'fade-in': 'fade-in 0.6s ease-out forwards'
+				'fade-in-up': 'fade-in-up 1.2s cubic-bezier(0.4, 0, 0.2, 1) forwards',
+				'fade-in': 'fade-in 0.8s cubic-bezier(0.4, 0, 0.2, 1) forwards',
+				'romantic-glow': 'romantic-glow 3s ease-in-out infinite',
+				'heart-beat': 'heart-beat 2s ease-in-out infinite'
 			}
 		}
 	},

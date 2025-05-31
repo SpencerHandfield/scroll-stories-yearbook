@@ -70,36 +70,42 @@ const galleryImages = [
 
 const Gallery = () => {
   return (
-    <div className="min-h-screen bg-gradient-to-b from-timeline-soft-purple/30 to-timeline-soft-pink/20 p-4 md:p-8">
-      <div className="max-w-7xl mx-auto">
-        <div className="flex items-center mb-8">
-          <Button
-            variant="outline"
-            size="sm"
-            className="gap-2"
-            asChild
-          >
-            <Link to="/">
-              <ArrowLeft size={16} />
-              Back to Timeline
-            </Link>
-          </Button>
-          <h1 className="text-3xl md:text-4xl font-bold ml-4 font-serif">Photo Gallery</h1>
-        </div>
-        
-        <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5 gap-4">
-          {galleryImages.map((image) => (
-            <div 
-              key={image.id} 
-              className="relative aspect-square overflow-hidden rounded-lg shadow-md hover:shadow-xl transition-shadow duration-300 hover:scale-[1.02] transform transition-transform"
+    <div className="min-h-screen romantic-bg">
+      <div className="fixed inset-0 bg-gradient-to-br from-pink-50/80 via-purple-50/60 to-rose-50/80 pointer-events-none" />
+      
+      <div className="relative z-10 p-4 md:p-8">
+        <div className="max-w-7xl mx-auto">
+          <div className="flex items-center mb-12">
+            <Button
+              variant="outline"
+              size="sm"
+              className="gap-2 border-pink-300 text-pink-600 hover:bg-pink-50 hover:border-pink-400 transition-all duration-300"
+              asChild
             >
-              <img
-                src={image.imageSrc}
-                alt={image.alt}
-                className="w-full h-full object-cover"
-              />
-            </div>
-          ))}
+              <Link to="/">
+                <ArrowLeft size={16} />
+                Back to Timeline
+              </Link>
+            </Button>
+            <h1 className="text-4xl md:text-5xl font-bold ml-6 font-display romantic-title">Photo Gallery</h1>
+          </div>
+          
+          <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5 gap-6">
+            {galleryImages.map((image, index) => (
+              <div 
+                key={image.id} 
+                className="relative aspect-square overflow-hidden rounded-xl shadow-lg hover:shadow-2xl transition-all duration-500 hover:scale-105 transform group"
+                style={{ animationDelay: `${index * 0.1}s` }}
+              >
+                <img
+                  src={image.imageSrc}
+                  alt={image.alt}
+                  className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110"
+                />
+                <div className="absolute inset-0 bg-gradient-to-br from-pink-400/0 via-transparent to-purple-400/0 group-hover:from-pink-400/20 group-hover:to-purple-400/20 transition-all duration-500" />
+              </div>
+            ))}
+          </div>
         </div>
       </div>
     </div>

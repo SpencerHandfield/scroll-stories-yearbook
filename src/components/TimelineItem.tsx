@@ -48,48 +48,50 @@ const TimelineItem: React.FC<TimelineItemProps> = ({
   }, []);
 
   // Staggered animation delay based on index
-  const animationDelay = `${index * 0.1}s`;
+  const animationDelay = `${index * 0.2}s`;
 
   return (
     <div 
       ref={itemRef} 
-      className={`timeline-item flex items-center justify-center w-full my-16 ${isVisible ? 'animate' : ''}`}
+      className={`timeline-item flex items-center justify-center w-full my-20 ${isVisible ? 'animate' : ''}`}
       style={{ animationDelay }}
     >
-      <div className="container relative grid grid-cols-1 md:grid-cols-2 gap-4 md:gap-12">
+      <div className="container relative grid grid-cols-1 md:grid-cols-2 gap-6 md:gap-16">
         {/* Content for left positioning */}
         {isLeft ? (
           <>
-            <div className="md:text-right flex flex-col justify-center order-2 md:order-1 px-4">
-              <span className="font-sans text-sm font-semibold text-timeline-purple mb-1">{date}</span>
-              <h3 className="font-display text-2xl md:text-3xl font-semibold mb-3">{title}</h3>
-              <p className="font-sans text-gray-600">{description}</p>
+            <div className="md:text-right flex flex-col justify-center order-2 md:order-1 px-6 timeline-content">
+              <span className="font-script text-lg font-semibold romantic-date mb-2 tracking-wide">{date}</span>
+              <h3 className="font-display text-3xl md:text-4xl font-bold mb-4 romantic-title leading-tight">{title}</h3>
+              <p className="font-sans text-gray-700 text-lg leading-relaxed">{description}</p>
             </div>
-            <div className="flex justify-center md:justify-start order-1 md:order-2 px-4">
-              <div className="relative overflow-hidden rounded-lg shadow-lg w-full max-w-md h-64 md:h-72">
+            <div className="flex justify-center md:justify-start order-1 md:order-2 px-6">
+              <div className="timeline-image-container relative overflow-hidden rounded-2xl shadow-2xl w-full max-w-md h-72 md:h-80">
                 <img 
                   src={imageSrc} 
                   alt={title}
-                  className="w-full h-full object-cover transition-transform duration-500 hover:scale-105"
+                  className="w-full h-full object-cover"
                 />
+                <div className="absolute inset-0 bg-gradient-to-br from-pink-400/10 via-transparent to-purple-400/10" />
               </div>
             </div>
           </>
         ) : (
           <>
-            <div className="flex justify-center md:justify-end order-1 px-4">
-              <div className="relative overflow-hidden rounded-lg shadow-lg w-full max-w-md h-64 md:h-72">
+            <div className="flex justify-center md:justify-end order-1 px-6">
+              <div className="timeline-image-container relative overflow-hidden rounded-2xl shadow-2xl w-full max-w-md h-72 md:h-80">
                 <img 
                   src={imageSrc} 
                   alt={title}
-                  className="w-full h-full object-cover transition-transform duration-500 hover:scale-105"
+                  className="w-full h-full object-cover"
                 />
+                <div className="absolute inset-0 bg-gradient-to-br from-rose-400/10 via-transparent to-pink-400/10" />
               </div>
             </div>
-            <div className="flex flex-col justify-center order-2 px-4">
-              <span className="font-sans text-sm font-semibold text-timeline-purple mb-1">{date}</span>
-              <h3 className="font-display text-2xl md:text-3xl font-semibold mb-3">{title}</h3>
-              <p className="font-sans text-gray-600">{description}</p>
+            <div className="flex flex-col justify-center order-2 px-6 timeline-content">
+              <span className="font-script text-lg font-semibold romantic-date mb-2 tracking-wide">{date}</span>
+              <h3 className="font-display text-3xl md:text-4xl font-bold mb-4 romantic-title leading-tight">{title}</h3>
+              <p className="font-sans text-gray-700 text-lg leading-relaxed">{description}</p>
             </div>
           </>
         )}
