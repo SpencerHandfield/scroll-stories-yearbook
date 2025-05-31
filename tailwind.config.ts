@@ -1,4 +1,3 @@
-
 import type { Config } from "tailwindcss";
 
 export default {
@@ -64,22 +63,16 @@ export default {
 					ring: 'hsl(var(--sidebar-ring))'
 				},
 				timeline: {
-					purple: "#be185d",
-					"light-purple": "#f8f5f9",
-					"soft-purple": "#fdfcfd",
-					"soft-pink": "#fef9f9",
-					"soft-peach": "#fffbf8",
-					"soft-blue": "#f7fbff",
-					rose: "#fb7185",
-					"deep-pink": "#a21caf",
-					lavender: "#e9e5f3",
-					blush: "#fce8f0"
+					primary: "#be185d",
+					secondary: "#6b7280",
+					light: "#f8f5f9",
+					accent: "#ec4899"
 				}
 			},
 			fontFamily: {
 				display: ['Playfair Display', 'serif'],
 				sans: ['Inter', 'sans-serif'],
-				script: ['Dancing Script', 'cursive']
+				script: ['Poppins', 'sans-serif']
 			},
 			borderRadius: {
 				lg: 'var(--radius)',
