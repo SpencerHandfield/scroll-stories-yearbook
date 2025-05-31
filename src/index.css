@@ -100,7 +100,7 @@
 }
 
 .timeline-dot {
-  @apply w-6 h-6 rounded-full bg-gradient-to-br from-rose-300 via-pink-300 to-purple-300 border-3 border-white z-10 shadow-md;
+  @apply w-6 h-6 rounded-full bg-gradient-to-br from-rose-300 via-pink-300 to-purple-300 border-2 border-white z-10 shadow-md;
   box-shadow: 0 0 8px rgba(236, 72, 153, 0.2), 0 0 16px rgba(168, 85, 247, 0.1);
   position: relative;
 }
