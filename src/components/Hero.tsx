@@ -16,8 +16,8 @@ const Hero: React.FC<HeroProps> = ({ title, subtitle, imageSrc }) => {
           alt={title} 
           className="w-full h-full object-cover"
         />
-        <div className="absolute inset-0 bg-gradient-to-b from-black/20 via-black/30 to-black/40" />
-        <div className="absolute inset-0 bg-gradient-to-br from-pink-900/20 via-purple-900/10 to-rose-900/20" />
+        <div className="absolute inset-0 bg-gradient-to-b from-black/10 via-black/20 to-black/30" />
+        <div className="absolute inset-0 bg-gradient-to-br from-pink-900/10 via-purple-900/5 to-rose-900/10" />
       </div>
       
       <div className="z-10 text-center px-4 md:px-8 max-w-4xl animate-fade-in">
@@ -25,15 +25,15 @@ const Hero: React.FC<HeroProps> = ({ title, subtitle, imageSrc }) => {
           {title}
         </h1>
         {subtitle && (
-          <p className="font-script text-2xl md:text-3xl text-pink-100 max-w-3xl mx-auto leading-relaxed">
+          <p className="font-script text-2xl md:text-3xl text-pink-50 max-w-3xl mx-auto leading-relaxed">
             {subtitle}
           </p>
         )}
       </div>
       
       <div className="absolute bottom-12 animate-heart-beat">
-        <div className="w-10 h-16 rounded-full border-2 border-pink-200 flex items-start justify-center p-2 bg-white/10 backdrop-blur-sm">
-          <div className="w-2 h-4 bg-gradient-to-b from-pink-300 to-rose-400 rounded-full animate-fade-in" />
+        <div className="w-8 h-14 rounded-full border-2 border-pink-100 flex items-start justify-center p-2 bg-white/5 backdrop-blur-sm">
+          <div className="w-1.5 h-3 bg-gradient-to-b from-pink-200 to-rose-300 rounded-full animate-fade-in" />
         </div>
       </div>
     </div>
