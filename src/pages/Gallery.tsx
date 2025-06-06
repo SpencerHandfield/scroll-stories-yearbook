@@ -1,4 +1,3 @@
-
 import React, { useEffect } from 'react';
 import { Button } from "@/components/ui/button";
 import { Link, useNavigate } from "react-router-dom";
@@ -72,11 +71,8 @@ const Gallery = () => {
   const navigate = useNavigate();
 
   useEffect(() => {
-    // Check if user is authenticated
-    const authStatus = localStorage.getItem('isAuthenticated');
-    if (authStatus !== 'true') {
-      navigate('/');
-    }
+    // Redirect to home since there's no persistent authentication
+    navigate('/');
   }, [navigate]);
 
   return (
