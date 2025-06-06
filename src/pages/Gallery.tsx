@@ -1,7 +1,7 @@
 
-import React from 'react';
+import React, { useEffect } from 'react';
 import { Button } from "@/components/ui/button";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import { ArrowLeft } from "lucide-react";
 
 // Sample gallery images - can be easily expanded by adding more entries
@@ -69,6 +69,16 @@ const galleryImages = [
 ];
 
 const Gallery = () => {
+  const navigate = useNavigate();
+
+  useEffect(() => {
+    // Check if user is authenticated
+    const authStatus = localStorage.getItem('isAuthenticated');
+    if (authStatus !== 'true') {
+      navigate('/');
+    }
+  }, [navigate]);
+
   return (
     <div className="min-h-screen romantic-bg">
       <div className="fixed inset-0 bg-gradient-to-br from-blue-50/40 via-indigo-50/30 to-sky-50/40 pointer-events-none" />
