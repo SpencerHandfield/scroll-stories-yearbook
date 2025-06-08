@@ -1,8 +1,7 @@
-
-import React, { useEffect } from 'react';
+import React, { useEffect, useRef, useState } from 'react';
 import { Button } from "@/components/ui/button";
 import { Link, useNavigate } from "react-router-dom";
-import { ArrowLeft } from "lucide-react";
+import { ArrowLeft, Volume2, VolumeX } from "lucide-react";
 
 // Sample gallery images - can be easily expanded by adding more entries
 const galleryImages = [
@@ -70,17 +69,51 @@ const galleryImages = [
 
 const Gallery = () => {
   const navigate = useNavigate();
+  const [isMuted, setIsMuted] = useState(false);
+  const audioRef = useRef<HTMLAudioElement>(null);
 
   useEffect(() => {
-    // Check if user is authenticated
-    const authStatus = localStorage.getItem('isAuthenticated');
-    if (authStatus !== 'true') {
-      navigate('/');
+    // Start background music
+    setTimeout(() => {
+      if (audioRef.current) {
+        audioRef.current.volume = 0.2;
+        audioRef.current.play().catch(console.log);
+      }
+    }, 300);
+  }, []);
+
+  const toggleMute = () => {
+    if (audioRef.current) {
+      audioRef.current.muted = !isMuted;
+      setIsMuted(!isMuted);
     }
-  }, [navigate]);
+  };
 
   return (
     <div className="min-h-screen romantic-bg">
+      {/* Background Music */}
+      <audio
+        ref={audioRef}
+        loop
+        preload="auto"
+        className="hidden"
+      >
+        <source src="https://www.bensound.com/bensound-music/bensound-slowmotion.mp3" type="audio/mpeg" />
+        <source src="https://www.soundjay.com/misc/sounds/magic-chime-02.wav" type="audio/wav" />
+      </audio>
+
+      {/* Music Control Button */}
+      <div className="fixed top-4 right-4 z-50">
+        <Button
+          onClick={toggleMute}
+          size="sm"
+          variant="outline"
+          className="bg-white/80 backdrop-blur-sm border-blue-200 text-cornflower-blue hover:bg-blue-50 transition-all duration-300"
+        >
+          {isMuted ? <VolumeX size={16} /> : <Volume2 size={16} />}
+        </Button>
+      </div>
+
       <div className="fixed inset-0 bg-gradient-to-br from-blue-50/40 via-indigo-50/30 to-sky-50/40 pointer-events-none" />
       
       <div className="relative z-10 p-4 md:p-8">

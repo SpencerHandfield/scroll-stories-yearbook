@@ -1,8 +1,8 @@
 
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, useRef } from 'react';
 import { Button } from "@/components/ui/button";
 import { Link } from "react-router-dom";
-import { GalleryHorizontal } from "lucide-react";
+import { GalleryHorizontal, Volume2, VolumeX } from "lucide-react";
 import Hero from '../components/Hero';
 import Timeline, { TimelineEntry } from '../components/Timeline';
 import Login from '../components/Login';
@@ -48,18 +48,26 @@ const timelineEntries: TimelineEntry[] = [
 
 const Index = () => {
   const [isAuthenticated, setIsAuthenticated] = useState(false);
-
-  useEffect(() => {
-    // Check if user is already authenticated from localStorage
-    const authStatus = localStorage.getItem('isAuthenticated');
-    if (authStatus === 'true') {
-      setIsAuthenticated(true);
-    }
-  }, []);
+  const [isMuted, setIsMuted] = useState(false);
+  const audioRef = useRef<HTMLAudioElement>(null);
 
   const handleLogin = () => {
     setIsAuthenticated(true);
-    localStorage.setItem('isAuthenticated', 'true');
+    
+    // Start playing background music after login
+    setTimeout(() => {
+      if (audioRef.current) {
+        audioRef.current.volume = 0.2;
+        audioRef.current.play().catch(console.log);
+      }
+    }, 500);
+  };
+
+  const toggleMute = () => {
+    if (audioRef.current) {
+      audioRef.current.muted = !isMuted;
+      setIsMuted(!isMuted);
+    }
   };
 
   if (!isAuthenticated) {
@@ -68,6 +76,29 @@ const Index = () => {
 
   return (
     <div className="min-h-screen romantic-bg">
+      {/* Background Music */}
+      <audio
+        ref={audioRef}
+        loop
+        preload="auto"
+        className="hidden"
+      >
+        <source src="https://www.bensound.com/bensound-music/bensound-slowmotion.mp3" type="audio/mpeg" />
+        <source src="https://www.soundjay.com/misc/sounds/magic-chime-02.wav" type="audio/wav" />
+      </audio>
+
+      {/* Music Control Button */}
+      <div className="fixed top-4 right-4 z-50">
+        <Button
+          onClick={toggleMute}
+          size="sm"
+          variant="outline"
+          className="bg-white/80 backdrop-blur-sm border-blue-200 text-cornflower-blue hover:bg-blue-50 transition-all duration-300"
+        >
+          {isMuted ? <VolumeX size={16} /> : <Volume2 size={16} />}
+        </Button>
+      </div>
+
       {/* Enhanced background overlay */}
       <div className="fixed inset-0 bg-gradient-to-br from-blue-50/40 via-indigo-50/30 to-sky-50/40 pointer-events-none" />
       
